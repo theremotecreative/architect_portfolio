@@ -18,10 +18,7 @@ const PortfolioPage = ({ data }) => (
               <Link to={`/project/${post.node.slug}`} style={{ display: "flex", color: "black", textDecoration: "none" }} >
                 <h3 dangerouslySetInnerHTML={{ __html: post.node.title }} style={{ marginBottom: 0 }} />
               </Link>
-              <p style={{ margin: 0, color: "grey" }}>
-                Price: ${post.node.acf.project_price}
-              </p>
-              <div dangerouslySetInnerHTML={{ __html: post.node.acf.short_description }} />
+              <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
             </div>
         </li>
       ))}
@@ -38,10 +35,7 @@ export const query = graphql`
         node {
           title
           slug
-          acf {
-            project_price
-            short_description
-          }
+          excerpt
           featured_media {
             localFile {
               childImageSharp {

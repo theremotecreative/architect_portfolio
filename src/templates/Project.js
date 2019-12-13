@@ -5,11 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 const ProjectTemplate = ({ data }) => (
   <Layout>
-    <SEO title={data.wordpressWpProject.title} description={data.wordpressWpProject.acf.short_description} />
+    <SEO title={data.wordpressWpProject.title} description={data.wordpressWpProject.excerpt} />
     <h1>{data.wordpressWpProject.title}</h1>
-    <p>
-      Price: ${data.wordpressWpProject.acf.project_price}
-    </p>
     <p>
       Categories: 
       {data.wordpressWpProject.categories.map(category => (
@@ -28,10 +25,7 @@ export const query = graphql`
     wordpressWpProject(wordpress_id: { eq: $id }) {
       title
       content
-      acf {
-        project_price
-        short_description
-      }
+      excerpt
       categories {
         name
         slug

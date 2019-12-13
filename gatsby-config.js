@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Architect Portfolio`,
+    description: `This is a demo website using Gatsby.js, a Wordpress CMS, and Netlify deployment`,
+    author: `@theremotecreative`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -37,7 +37,7 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         // Source Website from subdomain
-        baseUrl: "blog-cms.theremotecreative.com",
+        baseUrl: "architect-portfolio.theremotecreative.com",
         protocol: "http",
         hostingWPCOM: false,
         // Using advanced custom fields
@@ -47,7 +47,7 @@ module.exports = {
         perPage: 100,
         // Replace source url with gatsby site url
         /*searchAndReplaceContentUrls: {
-          sourceUrl: "http://blog-cms.theremotecreative.com",
+          sourceUrl: "http://architect-portfolio.theremotecreative.com",
           replacementUrl: "http://localhost:8000/",
         },*/
         // Set how many simultaneous requests are sent at once.
