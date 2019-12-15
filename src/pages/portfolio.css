@@ -1,0 +1,13 @@
+/* Masonry layout CSS */
+
+.masonry {
+    column-count: 3;
+    column-gap: 1em;
+}
+
+.masonry-item {
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+}
