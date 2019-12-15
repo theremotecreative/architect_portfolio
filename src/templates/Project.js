@@ -2,10 +2,12 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
+import NarrowLayout from "../components/NarrowLayout"
 import SEO from "../components/seo"
 const ProjectTemplate = ({ data }) => (
   <Layout>
     <SEO title={data.wordpressWpProject.title} description={data.wordpressWpProject.excerpt} />
+    <NarrowLayout>
     <h1>{data.wordpressWpProject.title}</h1>
     <p>
       Categories: 
@@ -17,6 +19,7 @@ const ProjectTemplate = ({ data }) => (
     </p>
     <Img sizes={data.wordpressWpProject.featured_media.localFile.childImageSharp.sizes} alt={data.wordpressWpProject.title} style={{ maxHeight: 450 }} />
     <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: data.wordpressWpProject.content }} />
+    </NarrowLayout>
   </Layout>
 )
 export default ProjectTemplate

@@ -3,6 +3,7 @@
 .masonry {
     column-count: 3;
     column-gap: 1em;
+    transition-duration: .3s;
 }
 
 .masonry-item {
@@ -10,4 +11,17 @@
     display: inline-block;
     margin: 0 0 1em;
     width: 100%;
+    transition-duration:.3s;
+}
+
+@media (max-width:800px) {
+    .masonry {
+        column-count: 2;
+    }
+}
+
+@media (max-width:500px) {
+    .masonry {
+        column-count: 1;
+    }
 }
