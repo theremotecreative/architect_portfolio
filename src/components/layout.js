@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
@@ -42,15 +35,15 @@ const Layout = ({ children }) => {
         <footer>
           © {new Date().getFullYear()}, Built by
           {` `}
-          <a href="https://theremotecreative.com" target="_blank">The Remote Creative</a>
+          <a href="https://theremotecreative.com" target="_blank" rel="noopener noreferrer">The Remote Creative</a>
           {` `}
           with
           {` `}
-          <a href="https://www.gatsbyjs.org" target="_blank">Gatsby</a>
+          <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
           {` `}
           and
           {` `}
-          <a href="https://www.wordpress.org" target="_blank">WordPress</a>
+          <a href="https://www.wordpress.org" target="_blank" rel="noopener noreferrer">WordPress</a>
         </footer>
       </div>
     </>
