@@ -2,10 +2,12 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
+import NarrowTemplate from "../components/NarrowTemplate"
 import SEO from "../components/seo"
 const BlogPostTemplate = ({ data }) => (
   <Layout>
     <SEO title={data.wordpressPost.title} description={data.wordpressPost.excerpt} />
+    <NarrowTemplate>
     <h1>{data.wordpressPost.title}</h1>
     <p>
       Written by {data.wordpressPost.author.name} on {data.wordpressPost.date}
@@ -20,6 +22,7 @@ const BlogPostTemplate = ({ data }) => (
     </p>
     <Img sizes={data.wordpressPost.featured_media.localFile.childImageSharp.sizes} alt={data.wordpressPost.title} style={{ maxHeight: 450 }} />
     <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }} />
+    </NarrowTemplate>
   </Layout>
 )
 export default BlogPostTemplate

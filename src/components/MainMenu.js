@@ -4,16 +4,28 @@ import MenuLink from "./MenuLink"
 export default () => (
   <ul className="mainMenu">
     <MenuLink
+      key="portfolio"
+      to="/portfolio/"
+    >
+      Portfolio
+    </MenuLink>
+    <MenuLink
+      key="about"
+      to="/about/"
+    >
+      About
+    </MenuLink>
+    <MenuLink
       key="blog"
       to="/blog/"
     >
       Blog
     </MenuLink>
     <MenuLink
-      key="portfolio"
-      to="/portfolio/"
+      key="contact"
+      to="/contact/"
     >
-      Portfolio
+      Contact
     </MenuLink>
   </ul>
 )

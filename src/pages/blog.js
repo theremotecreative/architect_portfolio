@@ -2,12 +2,14 @@ import React from "react"
 import { graphql, Link } from 'gatsby'
 import Img from "gatsby-image"
 import Layout from "../components/layout"
+import WideTemplate from "../components/WideTemplate"
 import SEO from "../components/seo"
 import pageCSS from "./pageCSS.module.css"
 
 const BlogPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <WideTemplate>
     <ul className={pageCSS.postList}>
       {data.allWordpressPost.edges.map(post => (
         <li className={pageCSS.blogPost}>
@@ -26,6 +28,7 @@ const BlogPage = ({ data }) => (
         </li>
       ))}
     </ul>
+    </WideTemplate>
   </Layout>
 )
 

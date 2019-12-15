@@ -15,7 +15,7 @@ const MainLogo = () => (
         <h1 className="mainLogo">
             <Link 
             to="/"
-            style={{ color: `white`, textDecoration: `none`, }} 
+            style={{ color: `#000`, textDecoration: `none`, }} 
             >
                 {data.wordpressSiteMetadata.name}
             </Link>

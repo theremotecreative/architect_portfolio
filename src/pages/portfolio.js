@@ -2,13 +2,14 @@ import React from "react"
 import { graphql, Link } from 'gatsby'
 import Img from "gatsby-image"
 import Layout from "../components/layout"
+import WideTemplate from "../components/WideTemplate"
 import SEO from "../components/seo"
 import "./portfolio.css"
 
 const PortfolioPage = ({ data }) => (
   <Layout>
     <SEO title="Portfolio" keywords={[`Architecture`, `Grid`, `Portfolio`]} />
-
+    <WideTemplate>
     <div class="masonry">
     {data.allWordpressWpProject.edges.map(post => (
         <div className="masonry-item">
@@ -18,6 +19,7 @@ const PortfolioPage = ({ data }) => (
         </div>
       ))}
     </div>
+    </WideTemplate>
   </Layout>
 )
 

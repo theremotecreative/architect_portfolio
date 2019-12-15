@@ -22,7 +22,6 @@ const Layout = ({ children }) => {
       <div
         style={{
           margin: `0 auto`,
-          padding: `0px 1.0875rem 1.45rem`,
           paddingTop: 0,
         }}
       >
@@ -31,7 +30,7 @@ const Layout = ({ children }) => {
             {children}
           </PageTransition>
         </main>
-        <footer>
+        <footer style={{ padding: `1.45rem 1.0875rem` }}>
           © {new Date().getFullYear()}, Built by
           {` `}
           <a href="https://theremotecreative.com" target="_blank" rel="noopener noreferrer">The Remote Creative</a>
