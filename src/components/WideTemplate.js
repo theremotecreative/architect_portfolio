@@ -4,8 +4,8 @@ import Footer from "./footer"
 
 const WideTemplate = ({ children }) => {
   return (
-    <div className="narrow-layout" style={{ 
-      margin: '120px auto 0px', 
+    <div className="wide-layout" style={{ 
+      margin: '0px auto', 
       padding: `1.45rem 1.0875rem` 
     }}>
       <main>

@@ -7,7 +7,7 @@ import Img from "gatsby-image"
 import "./home.css"
 
 const IndexPage = ({ data }) => (
-  <Layout>
+  <Layout className="fixed-header">
     <SEO title="Home" />
     <PageTransition>
     <div className="home-hero">

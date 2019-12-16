@@ -15,6 +15,13 @@ const PortfolioPage = ({ data }) => (
         <div className="masonry-item">
           <Link to={`/project/${post.node.slug}`} className="masonry-item-link" >
             <Img sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} className="masonry-item-img" />
+            <div className="text-panel">
+              <div className="text-cell">
+                <h3>
+                  {post.node.title}
+                </h3>
+              </div>
+            </div>
           </Link>
         </div>
       ))}

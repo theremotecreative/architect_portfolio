@@ -1,5 +1,11 @@
 /* Header CSS */
 
+.fixed-header header {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 .mainLogo {
     margin: 0;
 }
