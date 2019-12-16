@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import PageTransition from 'gatsby-plugin-page-transitions'
 import Header from "./header"
 import "./layout.css"
 
@@ -25,24 +24,7 @@ const Layout = ({ children }) => {
           paddingTop: 0,
         }}
       >
-        <main>
-          <PageTransition>
-            {children}
-          </PageTransition>
-        </main>
-        <footer style={{ padding: `1.45rem 1.0875rem` }}>
-          © {new Date().getFullYear()}, Built by
-          {` `}
-          <a href="https://theremotecreative.com" target="_blank" rel="noopener noreferrer">The Remote Creative</a>
-          {` `}
-          with
-          {` `}
-          <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
-          {` `}
-          and
-          {` `}
-          <a href="https://www.wordpress.org" target="_blank" rel="noopener noreferrer">WordPress</a>
-        </footer>
+        {children}
       </div>
     </>
   )
