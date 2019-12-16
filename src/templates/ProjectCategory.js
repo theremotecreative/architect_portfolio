@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import Layout from '../components/layout'
 import WideTemplate from "../components/WideTemplate"
 import SEO from "../components/seo"
-import "./portfolio.css"
+import "../pages/portfolio.css"
 
 const ProjectCategoryTemplate = ({ data }) => (
 			<Layout className="portfolio-page">
