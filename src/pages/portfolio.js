@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import "./portfolio.css"
 
 const PortfolioPage = ({ data }) => (
-  <Layout>
+  <Layout className="portfolio-page">
     <SEO title="Portfolio" keywords={[`Architecture`, `Grid`, `Portfolio`]} />
     <WideTemplate>
     <div class="masonry">

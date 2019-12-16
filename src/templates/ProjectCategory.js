@@ -2,32 +2,31 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from "gatsby-image"
 import Layout from '../components/layout'
+import WideTemplate from "../components/WideTemplate"
 import SEO from "../components/seo"
-import categoryCSS from "./Category.module.css"
+import "./portfolio.css"
 
 const ProjectCategoryTemplate = ({ data }) => (
-			<Layout>
-            <SEO title={`Project Category: ${data.wordpressCategory.name}`} keywords={[`gatsby`, `application`, `react`]} />
-				<header className="page-header">
-					<h1 className="page-title">
-						Project Category: <span className="page-description">{data.wordpressCategory.name}</span>
-					</h1>
-				</header>
-                <ul className={categoryCSS.postList}>
-                {data.allWordpressWpProject.edges.map(post => (
-                    <li className={categoryCSS.blogPost}>
-                    <Link to={`/project/${post.node.slug}`} className={categoryCSS.imageLink} >
-                      <Img sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} className={categoryCSS.postImage} />
-                    </Link>
-                      <div className={categoryCSS.postContent}>
-                        <Link to={`/project/${post.node.slug}`} style={{ display: "flex", color: "black", textDecoration: "none" }} >
-                          <h3 dangerouslySetInnerHTML={{ __html: post.node.title }} style={{ marginBottom: 0 }} />
-                        </Link>
-                        <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-                      </div>
-                    </li>
-                ))}
-                </ul>
+			<Layout className="portfolio-page">
+        <SEO title={`Project Category: ${data.wordpressCategory.name}`} keywords={[`Architecture`, `Grid`, `Portfolio`]} />
+        <WideTemplate>
+        <div class="masonry">
+        {data.allWordpressWpProject.edges.map(post => (
+            <div className="masonry-item">
+              <Link to={`/project/${post.node.slug}`} className="masonry-item-link" >
+                <Img sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} className="masonry-item-img" />
+                <div className="text-panel">
+                  <div className="text-cell">
+                    <h3>
+                      {post.node.title}
+                    </h3>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+        </WideTemplate>
 			</Layout>
 )
 export default ProjectCategoryTemplate;
