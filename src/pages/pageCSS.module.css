@@ -3,6 +3,7 @@
 .postList {
     list-style: none;
     transition-duration: .3s;
+    margin-left: 0;
 }
 
 .blogPost {
