@@ -2,35 +2,36 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from "gatsby-image"
 import Layout from '../components/layout'
+import WideTemplate from "../components/WideTemplate"
 import SEO from "../components/seo"
 import categoryCSS from "./Category.module.css"
 
 const CategoryTemplate = ({ data }) => (
 			<Layout>
             <SEO title={`Category: ${data.wordpressCategory.name}`} keywords={[`gatsby`, `application`, `react`]} />
-				<header className="page-header">
-					<h1 className="page-title">
-						Category: <span className="page-description">{data.wordpressCategory.name}</span>
-					</h1>
-				</header>
-                <ul className={categoryCSS.postList}>
-                {data.allWordpressPost.edges.map(post => (
-                    <li className={categoryCSS.blogPost}>
-                    <Link to={`/post/${post.node.slug}`} className={categoryCSS.imageLink} >
-                        <Img sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} className={categoryCSS.postImage} />
-                    </Link>
-                    <div className={categoryCSS.postContent}>
-                        <Link to={`/post/${post.node.slug}`} style={{ color: "black", textDecoration: "none" }} >
-                        <h3 dangerouslySetInnerHTML={{ __html: post.node.title }} style={{ marginBottom: 0 }} />
-                        </Link>
-                        <p style={{ margin: 0, color: "grey" }}>
-                        Written by {post.node.author.name} on {post.node.date}
-                        </p>
-                        <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-                    </div>
-                    </li>
-                ))}
-                </ul>
+        <WideTemplate>
+          <h2 className="page-title">
+            Category: <span className="page-description">{data.wordpressCategory.name}</span>
+          </h2>
+          <ul className={categoryCSS.postList}>
+          {data.allWordpressPost.edges.map(post => (
+              <li className={categoryCSS.blogPost}>
+              <Link to={`/post/${post.node.slug}`} className={categoryCSS.imageLink} >
+                  <Img sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} className={categoryCSS.postImage} />
+              </Link>
+              <div className={categoryCSS.postContent}>
+                  <Link to={`/post/${post.node.slug}`} style={{ color: "black", textDecoration: "none" }} >
+                  <h3 dangerouslySetInnerHTML={{ __html: post.node.title }} style={{ marginBottom: 0 }} />
+                  </Link>
+                  <p style={{ margin: 0, color: "grey" }}>
+                  Written by {post.node.author.name} on {post.node.date}
+                  </p>
+                  <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
+              </div>
+              </li>
+          ))}
+          </ul>
+        </WideTemplate>
 			</Layout>
 )
 export default CategoryTemplate;
