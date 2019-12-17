@@ -5,7 +5,6 @@ import Layout from "../components/layout"
 import NarrowTemplate from "../components/NarrowTemplate"
 import SEO from "../components/seo"
 import { FaSearch } from 'react-icons/fa'
-import Lightbox from '../components/Lightbox'
 
 const ProjectTemplate = ({ data }) => (
   <Layout>
@@ -15,7 +14,7 @@ const ProjectTemplate = ({ data }) => (
     <Img sizes={data.wordpressWpProject.featured_media.localFile.childImageSharp.sizes} alt={data.wordpressWpProject.title} style={{ maxHeight: 450 }} />
     <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: data.wordpressWpProject.content }} />
     
-    <Lightbox images={data.wordpressWpProject.acf.project_gallery} />
+    
     </NarrowTemplate>
   </Layout>
 )
