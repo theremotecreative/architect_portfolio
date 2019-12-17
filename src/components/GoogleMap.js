@@ -9,7 +9,7 @@ const defaultProps = {
  const AnyReactComponent = ({ text }) => <div>{text}</div>
 
  const GoogleMap = () => (
-   <div style={{ height: '100vh', width: '100%' }}>
+   <div style={{ height: '75vh', width: '100%' }}>
      <GoogleMapReact
        bootstrapURLKeys={{
             key: process.env.GATSBY_MAP_KEY, 

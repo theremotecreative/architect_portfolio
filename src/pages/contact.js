@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout.js"
-import NarrowTemplate from "../components/NarrowTemplate"
+import WideTemplate from "../components/WideTemplate"
 import GoogleMap from "../components/GoogleMap"
 import SEO from "../components/seo"
 import { FaMapMarkerAlt } from 'react-icons/fa'
@@ -15,7 +15,7 @@ export default () => (
       description="Contact Us to Learn More"
       keywords={[`Architecture`, `Contact`, `Map`]}
     />
-    <NarrowTemplate>
+    <WideTemplate>
       <div className="contact-box">
         <div className="contact-left">
           <div className="contact-map">
@@ -39,10 +39,24 @@ export default () => (
             </div>
           </div>
           <div className="contact-form">
-
+            <h2>Send us a message</h2>
+            <form name="contact" method="POST" data-netlify="true">
+              <p>
+                <label>Your Name: <input type="text" name="name" /></label>   
+              </p>
+              <p>
+                <label>Your Email: <input type="email" name="email" /></label>
+              </p>
+              <p>
+                <label>Message: <textarea name="message"></textarea></label>
+              </p>
+              <p>
+                <button type="submit">Submit</button>
+              </p>
+            </form>
           </div>
         </div>
       </div>
-    </NarrowTemplate>
+    </WideTemplate>
   </Layout>
 )
