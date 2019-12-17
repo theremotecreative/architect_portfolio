@@ -1,0 +1,18 @@
+/* contact page css */
+
+.contact-box {
+    display: flex;
+}
+
+.contact-left,
+.contact-right {
+    width: 50%;
+}
+
+.contact-info {
+    display: flex;
+}
+
+.contact-card {
+    display: flex;
+}
