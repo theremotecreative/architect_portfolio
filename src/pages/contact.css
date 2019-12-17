@@ -67,6 +67,12 @@
     border-color: #999;
 }
 
+.map-icon {
+    width: 100px;
+    text-align: center;
+    background-color: #aaa;
+}
+
 @media (max-width:1300px) {
     .contact-card {
         width: 50%;
@@ -107,6 +113,9 @@
 }
 
 @media (max-width:500px) {
+    .contact-right h1 {
+        text-align: center;
+    }
     .contact-card {
         width: 100%;
         justify-content: center;
