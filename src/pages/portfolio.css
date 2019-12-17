@@ -50,6 +50,18 @@
     transform: scale(1);
 }
 
+/* project gallery */
+
+.project-gallery .text-cell {
+    text-align: center;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.project-gallery .masonry-item:hover {
+    cursor: pointer;
+}
+
 @media (max-width:1000px) {
     .masonry {
         column-count: 2;

@@ -4,6 +4,8 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import NarrowTemplate from "../components/NarrowTemplate"
 import SEO from "../components/seo"
+import { FaSearch } from 'react-icons/fa'
+
 const ProjectTemplate = ({ data }) => (
   <Layout>
     <SEO title={data.wordpressWpProject.title} description={data.wordpressWpProject.excerpt} />
@@ -15,6 +17,11 @@ const ProjectTemplate = ({ data }) => (
     {data.wordpressWpProject.acf.project_gallery.map(post => (
         <div className="masonry-item">
           <Img sizes={post.localFile.childImageSharp.sizes} alt={post.title} className="masonry-item-img" />
+          <div className="text-panel">
+            <div className="text-cell">
+              <FaSearch />
+            </div>
+          </div>
         </div>
       ))}
     </div>
