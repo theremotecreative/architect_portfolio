@@ -3,6 +3,7 @@ import Layout from "../components/layout.js"
 import NarrowTemplate from "../components/NarrowTemplate"
 import GoogleMap from "../components/GoogleMap"
 import SEO from "../components/seo"
+import { FaBeer } from 'react-icons/fa'
 
 export default () => (
     <Layout>
@@ -14,7 +15,7 @@ export default () => (
     <NarrowTemplate>
     <h1>Contact Us</h1>
     <div className="contact-info">
-
+        <h3> Lets go for a <FaBeer />? </h3>
     </div>
     <div className="contact-map">
         <GoogleMap />
