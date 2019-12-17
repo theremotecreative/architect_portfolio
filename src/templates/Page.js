@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import Layout from "../components/layout.js"
 import NarrowTemplate from "../components/NarrowTemplate"
 import SEO from "../components/seo"
