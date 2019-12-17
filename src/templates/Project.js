@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import NarrowTemplate from "../components/NarrowTemplate"
@@ -11,6 +11,13 @@ const ProjectTemplate = ({ data }) => (
     <h1>{data.wordpressWpProject.title}</h1>
     <Img sizes={data.wordpressWpProject.featured_media.localFile.childImageSharp.sizes} alt={data.wordpressWpProject.title} style={{ maxHeight: 450 }} />
     <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: data.wordpressWpProject.content }} />
+    <div className="project-gallery masonry">
+    {data.wordpressWpProject.acf.project_gallery.map(post => (
+        <div className="masonry-item">
+          <Img sizes={post.localFile.childImageSharp.sizes} alt={post.title} className="masonry-item-img" />
+        </div>
+      ))}
+    </div>
     </NarrowTemplate>
   </Layout>
 )
@@ -24,6 +31,18 @@ export const query = graphql`
       categories {
         name
         slug
+      }
+      acf {
+        project_gallery {
+          title
+          localFile {
+            childImageSharp {
+              sizes(maxWidth: 1200) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
+        }
       }
       featured_media {
         localFile {
