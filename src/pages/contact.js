@@ -17,7 +17,7 @@ export default () => (
 
     </div>
     <div className="contact-map">
-        <GoogleMap></GoogleMap>
+        <GoogleMap />
     </div>
     <div className="contact-form">
 
