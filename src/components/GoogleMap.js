@@ -6,7 +6,7 @@ const defaultProps = {
     zoom: 12
  }
 
- const AnyReactComponent = ({ text }) => <div>{text}</div>
+ const AnyReactComponent = ({ text }) => <div className="map-icon">{text}</div>
 
  const GoogleMap = () => (
    <div style={{ height: '75vh', width: '100%' }}>
@@ -19,9 +19,9 @@ const defaultProps = {
        defaultZoom={defaultProps.zoom}
      >
        <AnyReactComponent
-         lat={59.955413}
-         lng={30.337844}
-         text={'Kreyser Avrora'}
+         lat={40.73}
+         lng={-73.93}
+         text={'Our Location'}
        />
      </GoogleMapReact>
    </div>
