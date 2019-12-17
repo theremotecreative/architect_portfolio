@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import NarrowTemplate from "../components/NarrowTemplate"
 import SEO from "../components/seo"
 import { FaSearch } from 'react-icons/fa'
+import Lightbox from '../components/Lightbox'
 
 const ProjectTemplate = ({ data }) => (
   <Layout>
@@ -13,18 +14,8 @@ const ProjectTemplate = ({ data }) => (
     <h1>{data.wordpressWpProject.title}</h1>
     <Img sizes={data.wordpressWpProject.featured_media.localFile.childImageSharp.sizes} alt={data.wordpressWpProject.title} style={{ maxHeight: 450 }} />
     <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: data.wordpressWpProject.content }} />
-    <div className="project-gallery masonry">
-    {data.wordpressWpProject.acf.project_gallery.map(post => (
-        <div className="masonry-item">
-          <Img sizes={post.localFile.childImageSharp.sizes} alt={post.title} className="masonry-item-img" />
-          <div className="text-panel">
-            <div className="text-cell">
-              <FaSearch />
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
+    
+    <Lightbox images={data.wordpressWpProject.acf.project_gallery} />
     </NarrowTemplate>
   </Layout>
 )
@@ -45,6 +36,7 @@ export const query = graphql`
           localFile {
             childImageSharp {
               sizes(maxWidth: 1200) {
+                src
                 ...GatsbyImageSharpSizes
               }
             }
