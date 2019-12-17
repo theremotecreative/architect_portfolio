@@ -12,7 +12,7 @@ const defaultProps = {
    <div style={{ height: '100vh', width: '100%' }}>
      <GoogleMapReact
        bootstrapURLKeys={{
-            key: process.env.GOOGLE_MAP_KEY, 
+            key: process.env.GATSBY_MAP_KEY, 
             language: 'en'
         }}
        defaultCenter={defaultProps.center}
