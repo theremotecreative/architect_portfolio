@@ -9,14 +9,6 @@ const ProjectTemplate = ({ data }) => (
     <SEO title={data.wordpressWpProject.title} description={data.wordpressWpProject.excerpt} />
     <NarrowTemplate>
     <h1>{data.wordpressWpProject.title}</h1>
-    <p>
-      Categories: 
-      {data.wordpressWpProject.categories.map(category => (
-          <Link to={`/project-category/${category.slug}`} style={{ padding: '0 0 0 10px' }}>
-              {category.name}
-          </Link>
-       ))}
-    </p>
     <Img sizes={data.wordpressWpProject.featured_media.localFile.childImageSharp.sizes} alt={data.wordpressWpProject.title} style={{ maxHeight: 450 }} />
     <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: data.wordpressWpProject.content }} />
     </NarrowTemplate>

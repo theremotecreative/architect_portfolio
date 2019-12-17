@@ -12,6 +12,7 @@ const PageTemplate = ({ data }) => (
     />
     <NarrowTemplate>
     <h1>{data.wordpressPage.title}</h1>
+    <Img sizes={data.wordpressPage.featured_media.localFile.childImageSharp.sizes} alt={data.wordpressPage.title} style={{ maxHeight: 450 }} />
     <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
     </NarrowTemplate>
   </Layout>
@@ -24,6 +25,15 @@ export const query = graphql`
       title
       excerpt
       content
+      featured_media {
+        localFile {
+          childImageSharp {
+            sizes(maxWidth: 1200) {
+                ...GatsbyImageSharpSizes
+              }
+          }
+        }
+      }
     }
   }
 `
