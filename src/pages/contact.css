@@ -70,6 +70,12 @@
 .map-icon {
     font-size: 36px;
     color: #000;
+    position: relative;
+}
+
+.map-icon svg {
+    position: relative;
+    top: 18px;
 }
 
 @media (max-width:1300px) {
