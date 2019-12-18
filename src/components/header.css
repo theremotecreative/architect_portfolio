@@ -63,6 +63,10 @@
     padding: 0px;
 }
 
+.mobileIcon:focus {
+    outline: none;
+}
+
 .mobileMenuContainer {
     display: none;
     visibility: hidden;
