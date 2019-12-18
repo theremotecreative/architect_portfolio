@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 
 const defaultProps = {
-    center: {lat: 40.73, lng: -73.93}, 
+    center: {lat: 40.759, lng: -73.980}, 
     zoom: 12
  }
 
@@ -20,8 +20,8 @@ const defaultProps = {
        defaultZoom={defaultProps.zoom}
      >
        <AnyReactComponent
-         lat={40.73}
-         lng={-73.93}
+         lat={40.759863}
+         lng={-73.980411}
        />
      </GoogleMapReact>
    </div>
