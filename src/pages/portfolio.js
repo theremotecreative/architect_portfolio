@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from 'gatsby'
+import styled from 'styled-components'
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import WideTemplate from "../components/WideTemplate"
@@ -10,7 +11,7 @@ const PortfolioPage = ({ data }) => (
   <Layout className="portfolio-page">
     <SEO title="Portfolio" keywords={[`Architecture`, `Grid`, `Portfolio`]} />
     <WideTemplate>
-    <div class="masonry">
+    <Masonry>
     {data.allWordpressWpProject.edges.map(post => (
         <div className="masonry-item">
           <Link to={`/project/${post.node.slug}`} className="masonry-item-link" >
@@ -25,10 +26,23 @@ const PortfolioPage = ({ data }) => (
           </Link>
         </div>
       ))}
-    </div>
+    </Masonry>
     </WideTemplate>
   </Layout>
 )
+
+const Masonry = styled.div`
+  column-count: 3;
+  column-gap: 1em;
+  transition-duration: .3s;
+  @media (max-width:1000px) {
+    column-count: 2;
+  }
+  @media (max-width:500px) {
+    column-count: 1;
+  }
+
+`
 
 export default PortfolioPage
 
@@ -45,6 +59,7 @@ export const query = graphql`
               childImageSharp {
                 sizes(maxWidth: 1200) {
                     ...GatsbyImageSharpSizes
+                    src
                   }
               }
             }

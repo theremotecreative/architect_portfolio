@@ -70,7 +70,7 @@ class LightBox extends Component {
           {images.map((img, i) => (
             <GalleryItem key={img.localFile.childImageSharp.sizes.src}>
               <a href={img.localFile.childImageSharp.sizes.src} alt="Project Image" onClick={e => this.handleClick(e, i)}>
-                <StyledImg sizes={img.localFile.childImageSharp.sizes} />
+                <StyledImg sizes={img.localFile.childImageSharp.sizes} alt="Gallery Image"/>
                 <TextPanel>
                   <TextCell>
                     <FaSearch />
@@ -83,7 +83,7 @@ class LightBox extends Component {
 
         <LightboxModal visible={showLightbox} onKeyUp={e => this.handleKeyDown(e)}>
           <LightboxContent>
-            <LightboxImg sizes={images[selectedImage].localFile.childImageSharp.sizes} />
+            <LightboxImg fixed={images[selectedImage].localFile.childImageSharp.fixed} alt="Lightbox Image"/>
             <Controls>
               <Button onClick={this.closeModal}><FaTimes/></Button>
               <LeftRight>

@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import NarrowTemplate from "../components/NarrowTemplate"
@@ -11,13 +12,17 @@ const ProjectTemplate = ({ data }) => (
   <Layout>
     <SEO title={data.wordpressWpProject.title} description={data.wordpressWpProject.excerpt} />
     <NarrowTemplate>
-    <h1>{data.wordpressWpProject.title}</h1>
+    <Title>{data.wordpressWpProject.title}</Title>
     <Img sizes={data.wordpressWpProject.featured_media.localFile.childImageSharp.sizes} alt={data.wordpressWpProject.title} style={{ maxHeight: 450 }} />
     <div style={{ marginTop: 20 }} dangerouslySetInnerHTML={{ __html: data.wordpressWpProject.content }} />
     <LightBox images={data.wordpressWpProject.acf.project_gallery} />
     </NarrowTemplate>
   </Layout>
 )
+
+const Title = styled.h1`
+  color: #000;
+`
 
 ProjectTemplate.propTypes = {
   data: PropTypes.object.isRequired,
@@ -43,6 +48,10 @@ export const query = graphql`
               sizes(maxWidth: 1200) {
                 src
                 ...GatsbyImageSharpSizes
+              }
+              fixed(width: 1000) {
+                src
+                ...GatsbyImageSharpFixed
               }
             }
           }
