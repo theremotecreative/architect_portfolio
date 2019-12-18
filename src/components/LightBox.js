@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { FaSearch } from 'react-icons/fa'
+import { FaTimes } from 'react-icons/fa'
+import { FaChevronLeft } from 'react-icons/fa'
+import { FaChevronRight } from 'react-icons/fa'
 
 class LightBox extends Component {
   state = {
@@ -82,13 +85,13 @@ class LightBox extends Component {
           <LightboxContent>
             <LightboxImg sizes={images[selectedImage].localFile.childImageSharp.sizes} />
             <Controls>
-              <Button onClick={this.closeModal}>Close</Button>
+              <Button onClick={this.closeModal}><FaTimes/></Button>
               <LeftRight>
                 <Button onClick={this.goBack} disabled={selectedImage === 0}>
-                  Previous
+                  <FaChevronLeft />
                 </Button>
                 <Button onClick={this.goForward} disabled={selectedImage === images.length - 1}>
-                  Next
+                  <FaChevronRight />
                 </Button>
               </LeftRight>
             </Controls>
@@ -172,6 +175,7 @@ const LightboxModal = styled.div`
 const LightboxImg = styled(Img)``
 
 const LightboxContent = styled.div`
+  position: relative;
   margin: 15px;
   max-width: 1000px;
   width: 100%;
@@ -186,13 +190,44 @@ const LightboxContent = styled.div`
 `
 
 const Controls = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
+  > button {
+    position: absolute;
+    top: -50px;
+    font-size: 30px;
+    color: #fff;
+    background: transparent;
+    border: none;
+  }
 `
 
 const LeftRight = styled.div`
-  button:first-child {
-    margin-right: 10px;
+  width: 100%;
+  button {
+    width: 50%;
+    height: 100%;
+    font-size: 50px;
+    opacity: .6;
+    background: transparent;
+    border: none;
+    transition-duration: .3s;
+    &:hover {
+      opacity: 1;
+    }
+    &:focus {
+      outline: none;
+    }
+    &:first-child {
+      text-align: left;
+    }
+    &:last-child {
+      text-align: right;
+    }
   }
 `
 
