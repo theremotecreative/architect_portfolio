@@ -1,23 +1,35 @@
 import React from "react"
 import { graphql } from 'gatsby'
 import PageTransition from 'gatsby-plugin-page-transitions'
+import styled from 'styled-components'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
-import "./home.css"
 
 const IndexPage = ({ data }) => (
   <Layout className="fixed-header">
     <SEO title="Home" />
     <PageTransition>
-    <div className="home-hero">
+    <HomeHero>
     {data.allWordpressWpHomeSlide.edges.map(post => (
-        <Img sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} className="home-hero-img" />
+        <HomeHeroImg sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} />
       ))}
-    </div>
+    </HomeHero>
     </PageTransition>
   </Layout>
 )
+
+const HomeHero = styled.div`
+  height: 100vh;
+`
+
+const HomeHeroImg = styled(Img)`
+  display: none;
+  height:100vh;
+  &:first-child {
+    display: block;
+  }
+`
 
 export default IndexPage
 
