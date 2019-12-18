@@ -1,12 +1,13 @@
 import React from "react"
 import GoogleMapReact from 'google-map-react'
+import { FaMapMarkerAlt } from 'react-icons/fa'
 
 const defaultProps = {
     center: {lat: 40.73, lng: -73.93}, 
     zoom: 12
  }
 
- const AnyReactComponent = ({ text }) => <div className="map-icon">{text}</div>
+ const AnyReactComponent =  <div className="map-icon"><FaMapMarkerAlt /></div>
 
  const GoogleMap = () => (
    <div style={{ height: '75vh', width: '100%' }}>
@@ -21,7 +22,6 @@ const defaultProps = {
        <AnyReactComponent
          lat={40.73}
          lng={-73.93}
-         text={'Our Location'}
        />
      </GoogleMapReact>
    </div>
