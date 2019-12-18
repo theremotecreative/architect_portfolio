@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
-class Lightbox extends Component {
+class LightBox extends Component {
   state = {
     showLightbox: false,
     selectedImage: 0,
@@ -160,8 +160,8 @@ const LeftRight = styled.div`
   }
 `
 
-Lightbox.propTypes = {
+LightBox.propTypes = {
   images: PropTypes.array.isRequired,
 }
 
-export default Lightbox
+export default LightBox
