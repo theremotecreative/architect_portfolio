@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import styled from 'styled-components'
 
 const MenuLink = ({ to, key, children }) => (
   <li
@@ -7,13 +8,21 @@ const MenuLink = ({ to, key, children }) => (
     style={{ margin: `0 10px` }} 
     className="mainMenuItem"
   >
-    <Link 
+    <CustomLink 
       to={to}
-      style={{ color: `#fff`, textDecoration: `none`, fontFamily: `sans-serif`, }} 
       >
       {children}
-    </Link>
+    </CustomLink>
   </li>
 )
+
+const CustomLink = styled(Link)`
+  color: #000;
+  text-decoration: none;
+  font-family: sans-serif;
+  @media (max-width:800px) {
+    color: #fff;
+  }
+`
 
 export default MenuLink
