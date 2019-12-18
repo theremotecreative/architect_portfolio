@@ -1,5 +1,6 @@
 import { StaticQuery, graphql, Link } from "gatsby"
 import React from "react"
+import styled from 'styled-components'
 
 const MainLogo = () => (
     <StaticQuery
@@ -13,14 +14,22 @@ const MainLogo = () => (
   
       render={data => (
         <h1 className="mainLogo">
-            <Link 
+            <MainLogoLink 
             to="/"
-            style={{ color: `#000`, textDecoration: `none`, }} 
             >
                 {data.wordpressSiteMetadata.name}
-            </Link>
+            </MainLogoLink>
         </h1>
       )}
     />
   )
+
+const MainLogoLink = styled(Link)`
+  color: #000;
+  text-decoration: none;
+  @media(max-width:800px) {
+    color: #fff;
+  }
+`
+
   export default MainLogo
