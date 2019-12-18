@@ -7,7 +7,7 @@ const defaultProps = {
     zoom: 12
  }
 
- const AnyReactComponent =  <div className="map-icon"><FaMapMarkerAlt /></div>
+ const AnyReactComponent = () => <div className="map-icon"><FaMapMarkerAlt /></div>
 
  const GoogleMap = () => (
    <div style={{ height: '75vh', width: '100%' }}>
