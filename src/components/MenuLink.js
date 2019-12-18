@@ -9,7 +9,7 @@ const MenuLink = ({ to, key, children }) => (
   >
     <Link 
       to={to}
-      style={{ color: `#000`, textDecoration: `none`, fontFamily: `sans-serif`, }} 
+      style={{ color: `#fff`, textDecoration: `none`, fontFamily: `sans-serif`, }} 
       >
       {children}
     </Link>

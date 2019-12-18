@@ -16,6 +16,15 @@
     margin: 0;
 }
 
+@media (max-width:800px) {
+    header {
+        background-color: #333;
+    }
+    .mainLogo a {
+        color: #fff;
+    }
+}
+
 /* CSS for submenu dropdown */
 
 .mainMenuItem {
@@ -76,7 +85,7 @@
     width: 40px;
     height: 4px;
     border-radius: 2px;
-    background-color: #000;
+    background-color: #fff;
     transition-duration: .3s;
 }
 
@@ -86,7 +95,7 @@
     width: 40px;
     height: 4px;
     border-radius: 2px;
-    background-color: #000;
+    background-color: #fff;
     transition-duration: .3s;
 }
 
@@ -96,7 +105,7 @@
     width: 40px;
     height: 4px;
     border-radius: 2px;
-    background-color: #000;
+    background-color: #fff;
     transition-duration: .3s;
 }
 
