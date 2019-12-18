@@ -13,12 +13,17 @@ const PageTemplate = ({ data }) => (
       description={data.wordpressPage.excerpt}
     />
     <NarrowTemplate>
-    <h1>{data.wordpressPage.title}</h1>
+    <PageTitle>{data.wordpressPage.title}</PageTitle>
     <Img sizes={data.wordpressPage.featured_media.localFile.childImageSharp.sizes} alt={data.wordpressPage.title} style={{ maxHeight: 450, marginBottom: '1.45rem' }} />
     <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
     </NarrowTemplate>
   </Layout>
 )
+
+const PageTitle = styled.h1`
+  color: #000;
+`
+
 export default PageTemplate
 
 export const query = graphql`
