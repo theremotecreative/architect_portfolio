@@ -13,18 +13,18 @@ const PortfolioPage = ({ data }) => (
     <WideTemplate>
     <Masonry>
     {data.allWordpressWpProject.edges.map(post => (
-        <div className="masonry-item">
+        <MasonryItem>
           <Link to={`/project/${post.node.slug}`} className="masonry-item-link" >
-            <Img sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} className="masonry-item-img" />
-            <div className="text-panel">
-              <div className="text-cell">
-                <h3>
+            <MasonryItemImg sizes={post.node.featured_media.localFile.childImageSharp.sizes} alt={post.node.title} />
+            <TextPanel>
+              <TextCell>
+                <TextTitle>
                   {post.node.title}
-                </h3>
-              </div>
-            </div>
+                </TextTitle>
+              </TextCell>
+            </TextPanel>
           </Link>
-        </div>
+        </MasonryItem>
       ))}
     </Masonry>
     </WideTemplate>
@@ -41,7 +41,50 @@ const Masonry = styled.div`
   @media (max-width:500px) {
     column-count: 1;
   }
+`
 
+const MasonryItem = styled.div`
+  position: relative;
+  background-color: #000;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+  transition-duration:.3s;
+  &:hover {
+    ${MasonryItemImg} {
+      opacity: .2;
+    }
+    ${TextCell} {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+`
+
+const MasonryItemImg = styled(Img)`
+  transition-duration: .3s;
+`
+
+const TextPanel = styled.div`
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  align-items: center;
+  margin: 0 auto;
+`
+
+const TextCell = styled.div`
+  width: 100%;
+  transition: all .3s;
+  opacity: 0;
+  transform: scale(.7)
+`
+
+const TextTitle = styled.h3`
+  color: #fff;
+  text-align:center;
 `
 
 export default PortfolioPage

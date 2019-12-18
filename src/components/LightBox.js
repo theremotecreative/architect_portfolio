@@ -83,7 +83,7 @@ class LightBox extends Component {
 
         <LightboxModal visible={showLightbox} onKeyUp={e => this.handleKeyDown(e)}>
           <LightboxContent>
-            <LightboxImg fixed={images[selectedImage].localFile.childImageSharp.fixed} alt="Lightbox Image"/>
+            <LightboxImg sizes={images[selectedImage].localFile.childImageSharp.sizes} alt="Lightbox Image"/>
             <Controls>
               <Button onClick={this.closeModal}><FaTimes/></Button>
               <LeftRight>
