@@ -43,24 +43,6 @@ const Masonry = styled.div`
   }
 `
 
-const MasonryItem = styled.div`
-  position: relative;
-  background-color: #000;
-  display: inline-block;
-  margin: 0 0 1em;
-  width: 100%;
-  transition-duration:.3s;
-  &:hover {
-    ${MasonryItemImg} {
-      opacity: .2;
-    }
-    ${TextCell} {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-`
-
 const MasonryItemImg = styled(Img)`
   transition-duration: .3s;
 `
@@ -85,6 +67,24 @@ const TextCell = styled.div`
 const TextTitle = styled.h3`
   color: #fff;
   text-align:center;
+`
+
+const MasonryItem = styled.div`
+  position: relative;
+  background-color: #000;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+  transition-duration:.3s;
+  &:hover {
+    ${MasonryItemImg} {
+      opacity: .2;
+    }
+    ${TextCell} {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 `
 
 export default PortfolioPage
