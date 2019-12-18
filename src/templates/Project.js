@@ -5,7 +5,6 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import NarrowTemplate from "../components/NarrowTemplate"
 import SEO from "../components/seo"
-import { FaSearch } from 'react-icons/fa'
 import LightBox from '../components/LightBox'
 
 const ProjectTemplate = ({ data }) => (

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import { FaSearch } from 'react-icons/fa'
 
 class LightBox extends Component {
   state = {
@@ -67,6 +68,11 @@ class LightBox extends Component {
             <GalleryItem key={img.localFile.childImageSharp.sizes.src}>
               <a href={img.localFile.childImageSharp.sizes.src} alt="Project Image" onClick={e => this.handleClick(e, i)}>
                 <StyledImg sizes={img.localFile.childImageSharp.sizes} />
+                <TextPanel>
+                  <TextCell>
+                    <FaSearch />
+                  </TextCell>
+                </TextPanel>
               </a>
             </GalleryItem>
           ))}
@@ -74,7 +80,7 @@ class LightBox extends Component {
 
         <LightboxModal visible={showLightbox} onKeyUp={e => this.handleKeyDown(e)}>
           <LightboxContent>
-            <Img sizes={images[selectedImage].localFile.childImageSharp.sizes} />
+            <LightboxImg sizes={images[selectedImage].localFile.childImageSharp.sizes} />
             <Controls>
               <Button onClick={this.closeModal}>Close</Button>
               <LeftRight>
@@ -94,38 +100,57 @@ class LightBox extends Component {
 }
 
 const StyledImg = styled(Img)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: -1;
-  height: 100%; // or whatever
-  & > img {
-    object-fit: cover !important; // or whatever
-    object-position: 0% 0% !important; // or whatever
-  }
+  transition-duration: .3s;
 `
 
 const Gallery = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  @media (min-width: 700px) {
-    grid-template-columns: 1fr 1fr;
+  column-count: 1;
+  column-gap: 1em;
+  transition-duration: .3s;
+  @media (min-width: 500px) {
+    column-count: 2;
   }
   @media (min-width: 900px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    column-count: 3;
   }
-  @media (min-width: 1100px) {
-    grid-template-columns: repeat(5, 1fr);
-  }
-  grid-gap: 15px;
-  .gatsby-image-outer-wrapper {
-    height: 100%;
-  }
+`
+
+const TextPanel = styled.div`
+  position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  align-items: center;
+  margin: 0 auto;
+`
+
+const TextCell = styled.div`
+  width: 100%;
+  transition: all .3s;
+  opacity: 0;
+  transform: scale(.7);
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
 `
 
 const GalleryItem = styled.div`
   position: relative;
+  background-color: #000;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+  transition-duration:.3s;
+  &:hover {
+    ${StyledImg} {
+      opacity: 0.2;
+    }
+    ${TextCell} {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 `
 
 const Button = styled.button``
@@ -143,10 +168,21 @@ const LightboxModal = styled.div`
   opacity: ${props => (props.visible ? '1' : '0')};
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};
 `
+
+const LightboxImg = styled(Img)``
+
 const LightboxContent = styled.div`
   margin: 15px;
-  max-width: 700px;
+  max-width: 1000px;
   width: 100%;
+  max-height: 80vh;
+  height: 100%;
+  ${LightboxImg} {
+    max-width: 1000px;
+    width: 100%;
+    max-height: 80vh;
+    height: 100%;
+  }
 `
 
 const Controls = styled.div`
